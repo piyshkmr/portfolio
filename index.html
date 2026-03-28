@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name] — Performance Marketer</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #111110;
+    --gray-900: #1c1c1a;
+    --gray-600: #5a5a57;
+    --gray-400: #9a9a96;
+    --gray-200: #e4e4e0;
+    --gray-100: #f2f2ee;
+    --gray-50:  #f9f9f7;
+    --white: #ffffff;
+    --accent: #1a1a18;
+    --green: #166534;
+    --green-bg: #dcfce7;
+    --teal: #0f6e56;
+    --teal-bg: #e1f5ee;
+    --purple: #3c3489;
+    --purple-bg: #eeedfe;
+    --amber: #854f0b;
+    --amber-bg: #faeeda;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --font-head: 'Georgia', 'Times New Roman', serif;
+    --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --max-w: 720px;
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  section:last-child { border-bottom: none; }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 0 24px;
+  }
+
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-head);
+    font-size: 17px;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--gray-600);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .nav-cta {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white) !important;
+    background: var(--black);
+    padding: 7px 16px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: opacity var(--transition);
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 80px 0 72px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .hero-text { flex: 1; }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 16px;
+  }
+
+  .hero-headline {
+    font-family: var(--font-head);
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: normal;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 20px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 11px 24px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: opacity var(--transition);
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 11px 24px;
+    background: transparent;
+    color: var(--gray-600);
+    font-size: 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: border-color var(--transition), color var(--transition);
+  }
+
+  .btn-secondary:hover { border-color: var(--gray-400); color: var(--black); }
+
+  .hero-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .photo-hint {
+    text-align: center;
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.5;
+  }
+
+  /* ── Section Labels ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: normal;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .section-sub {
+    font-size: 15px;
+    color: var(--gray-600);
+    margin-bottom: 36px;
+    max-width: 560px;
+  }
+
+  /* ── Metrics Bar ── */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--gray-200);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .metric-cell {
+    background: var(--white);
+    padding: 28px 24px;
+  }
+
+  .metric-num {
+    font-family: var(--font-head);
+    font-size: 32px;
+    font-weight: normal;
+    color: var(--black);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .metric-label {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.4;
+  }
+
+  /* ── Services ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+  }
+
+  .service-card {
+    padding: 24px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition);
+  }
+
+  .service-card:hover { border-color: var(--gray-400); }
+
+  .service-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .service-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--gray-100);
+    color: var(--gray-600);
+    border: 1px solid var(--gray-200);
+  }
+
+  /* ── Process ── */
+  .process-list { display: flex; flex-direction: column; gap: 0; }
+
+  .process-item {
+    display: flex;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--gray-100);
+    align-items: flex-start;
+  }
+
+  .process-item:last-child { border-bottom: none; }
+
+  .process-num {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-400);
+    letter-spacing: 0.08em;
+    min-width: 48px;
+    padding-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .process-body {}
+
+  .process-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+
+  .process-desc {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  .process-week {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    background: var(--gray-100);
+    color: var(--gray-400);
+    border: 1px solid var(--gray-200);
+  }
+
+  /* ── Case Studies ── */
+  .case-study {
+    padding: 36px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    margin-bottom: 20px;
+  }
+
+  .case-study:last-child { margin-bottom: 0; }
+
+  .case-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .case-tag-fnb { background: var(--teal-bg); color: var(--teal); border: 1px solid #9fe1cb; }
+  .case-tag-health { background: var(--purple-bg); color: var(--purple); border: 1px solid #cecbf6; }
+
+  .case-title {
+    font-family: var(--font-head);
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .case-meta {
+    font-size: 13px;
+    color: var(--gray-400);
+    margin-bottom: 24px;
+  }
+
+  .case-section-label {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-400);
+    margin-bottom: 10px;
+  }
+
+  .case-situation {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.7;
+    padding: 16px;
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--gray-200);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .case-steps { margin-bottom: 24px; }
+
+  .case-step {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-100);
+    align-items: flex-start;
+  }
+
+  .case-step:last-child { border-bottom: none; }
+
+  .case-step-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-600);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .case-step-text {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  .case-step-text strong { color: var(--black); font-weight: 500; }
+
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .case-metric {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+  }
+
+  .case-metric-num {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: normal;
+    color: var(--black);
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .case-metric-label {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.4;
+  }
+
+  .result-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+
+  .result-pill {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid #bbf7d0;
+  }
+
+  .ss-placeholder {
+    border: 1.5px dashed var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    text-align: center;
+    background: var(--gray-50);
+    margin-top: 8px;
+  }
+
+  .ss-placeholder-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .ss-placeholder-hint {
+    font-size: 12px;
+    color: var(--gray-400);
+    line-height: 1.5;
+  }
+
+  /* ── About ── */
+  .about-inner {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .about-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  /* ── Social Proof ── */
+  .expect-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+
+  .expect-item {
+    display: flex;
+    gap: 14px;
+    padding: 18px;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-100);
+    align-items: flex-start;
+  }
+
+  .expect-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gray-400);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .expect-text {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  .expect-text strong { color: var(--black); font-weight: 500; }
+
+  /* ── FAQ ── */
+  .faq-list { display: flex; flex-direction: column; }
+
+  .faq-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .faq-item:last-child { border-bottom: none; }
+
+  .faq-q {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+
+  .faq-a {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  .faq-a strong { color: var(--black); font-weight: 500; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    padding: 72px 0;
+  }
+
+  .cta-inner { text-align: center; }
+
+  .cta-title {
+    font-family: var(--font-head);
+    font-size: clamp(24px, 3.5vw, 32px);
+    font-weight: normal;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+
+  .cta-sub {
+    font-size: 15px;
+    color: var(--gray-600);
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cal-embed-placeholder {
+    max-width: 480px;
+    margin: 0 auto 20px;
+    border: 1.5px dashed var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 40px 24px;
+    background: var(--white);
+  }
+
+  .cal-embed-placeholder p {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+  }
+
+  .cal-embed-placeholder small {
+    font-size: 12px;
+    color: var(--gray-400);
+    line-height: 1.5;
+    display: block;
+  }
+
+  /* Replace the placeholder above with your actual cal.com embed:
+     <div style="max-width:480px;margin:0 auto 20px;">
+       <!-- paste your cal.com embed code here -->
+     </div>
+  */
+
+  .cta-email {
+    font-size: 13px;
+    color: var(--gray-400);
+  }
+
+  .cta-email a {
+    color: var(--gray-600);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gray-200);
+    transition: border-color var(--transition), color var(--transition);
+  }
+
+  .cta-email a:hover { color: var(--black); border-color: var(--gray-400); }
+
+  /* ── Footer ── */
+  footer {
+    padding: 28px 24px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .footer-name {
+    font-family: var(--font-head);
+    font-size: 14px;
+    color: var(--gray-400);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--gray-400);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .footer-links a:hover { color: var(--black); }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero-inner { flex-direction: column-reverse; gap: 24px; }
+    .hero-photo { width: 80px; height: 80px; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .case-metrics { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .about-inner { flex-direction: column; gap: 20px; }
+    .case-study { padding: 24px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">[Your Name]</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Book a call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Performance Marketer · Meta & Google Ads</div>
+        <h1 class="hero-headline">I help e-commerce brands scale ad spend without killing their ROAS.</h1>
+        <p class="hero-sub">Full-funnel Meta & Google Ads for D2C and e-commerce brands. I've managed ₹12L+ in monthly ad spend, grown brand revenue by 55%, and cut cost per lead by 26% — while scaling spend 2.4x.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Book a free strategy call →</a>
+          <a href="#work" class="btn-secondary">See my work</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <!-- Replace with: <img src="your-photo.jpg" alt="[Your Name]"> -->
+        <div class="photo-hint">Your photo<br><span style="font-size:10px">400×400px</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── METRICS ── -->
+<section>
+  <div class="container">
+    <div class="section-label">By the numbers</div>
+    <div class="metrics-grid">
+      <div class="metric-cell">
+        <div class="metric-num">₹12L+</div>
+        <div class="metric-label">Monthly ad spend managed</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-num">3x+</div>
+        <div class="metric-label">Consistent ROAS delivered</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-num">26%</div>
+        <div class="metric-label">CPL reduced while scaling 2.4x</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">What I do</h2>
+    <p class="section-sub">I work with e-commerce and D2C brands who want consistent, profitable growth from paid ads — not just more spend.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-title">Meta Ads management</div>
+        <div class="service-desc">Full-funnel campaign setup and management — cold audience prospecting, retargeting, and retention. Includes creative strategy, audience building, budget scaling, tracking setup, and weekly reporting.</div>
+        <span class="service-tag">Best for: brands spending ₹1L–₹15L/month</span>
+      </div>
+      <div class="service-card">
+        <div class="service-title">Google Ads management</div>
+        <div class="service-desc">Search, Shopping, and Performance Max campaigns built for e-commerce conversions and lead generation. Keyword research, bidding strategy, and ongoing optimisation included.</div>
+        <span class="service-tag">Best for: brands with intent-driven buyers</span>
+      </div>
+      <div class="service-card">
+        <div class="service-title">Full-funnel growth strategy</div>
+        <div class="service-desc">Meta + Google running together with a unified funnel — cold traffic, warm retargeting, and retention via email/WhatsApp. Includes tracking setup, creative testing framework, and monthly performance reviews.</div>
+        <span class="service-tag">Best for: brands ready to scale beyond ₹5L/month</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW I WORK ── -->
+<section id="process">
+  <div class="container">
+    <div class="section-label">How I work</div>
+    <h2 class="section-title">How I turn ad spend into growth</h2>
+    <p class="section-sub">A clear process — so you always know what's happening, why, and what's coming next.</p>
+    <div class="process-list">
+      <div class="process-item">
+        <div class="process-num">01</div>
+        <div class="process-body">
+          <div class="process-title">Audit & diagnose</div>
+          <div class="process-desc">Before touching your budget, I review your existing campaigns, tracking setup, creative performance, and funnel structure. I identify exactly what's leaking money and what has potential to scale.</div>
+          <span class="process-week">Week 1</span>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">02</div>
+        <div class="process-body">
+          <div class="process-title">Fix the foundation</div>
+          <div class="process-desc">Tracking, pixel events, Conversion API, UTMs — all verified before any scaling. Bad data is the #1 reason ad accounts underperform. I fix this first so every decision is based on reality.</div>
+          <span class="process-week">Week 1–2</span>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">03</div>
+        <div class="process-body">
+          <div class="process-title">Build & structure campaigns</div>
+          <div class="process-desc">Full-funnel campaign structure — cold prospecting, warm retargeting, and retention — each with the right audience, creative, and budget. No more one-size-fits-all campaigns.</div>
+          <span class="process-week">Week 2</span>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">04</div>
+        <div class="process-body">
+          <div class="process-title">Test, learn, optimise</div>
+          <div class="process-desc">Structured creative and audience testing every week. I isolate variables, measure what matters, and cut losers fast. No gut-feel decisions — everything is backed by data before we scale it.</div>
+          <span class="process-week">Ongoing</span>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">05</div>
+        <div class="process-body">
+          <div class="process-title">Scale what works — report everything</div>
+          <div class="process-desc">Once winning creatives and audiences are identified, we scale spend deliberately. You get a weekly report in plain English: what ran, what worked, what didn't, and what's next. No jargon, no confusion.</div>
+          <span class="process-week">Ongoing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CASE STUDIES ── -->
+<section id="work">
+  <div class="container">
+    <div class="section-label">Case studies</div>
+    <h2 class="section-title">Results I've delivered</h2>
+    <p class="section-sub">Real campaigns, real numbers. Brand names withheld — dashboard screenshots available on request.</p>
+
+    <!-- Case Study 1 -->
+    <div class="case-study">
+      <span class="case-tag case-tag-fnb">Food & Beverage · Meta Ads · Full funnel</span>
+      <h3 class="case-title">How I grew a D2C food brand's revenue by 55% in under 3 months — while holding ROAS above 3x</h3>
+      <div class="case-meta">₹2.5L/mo ad spend · 1–3 months · Full-funnel Meta Ads</div>
+
+      <div class="case-section-label">The situation</div>
+      <div class="case-situation">The brand had an existing Meta Ads presence but no structured funnel. Cold and warm audiences were lumped together, creatives weren't segmented by intent, and there was no retention layer — every sale depended entirely on new paid acquisition.</div>
+
+      <div class="case-section-label">What I did</div>
+      <div class="case-steps">
+        <div class="case-step">
+          <div class="case-step-num">1</div>
+          <div class="case-step-text"><strong>Rebuilt the full funnel.</strong> Separated cold prospecting (TOF), warm retargeting (MOF), and past purchaser campaigns (BOF) into distinct ad sets with tailored messaging at each stage.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-num">2</div>
+          <div class="case-step-text"><strong>Restructured creative strategy.</strong> Matched ad creatives to funnel stage — awareness hooks for cold audiences, testimonials for warm, and loyalty messaging for repeat buyers.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-num">3</div>
+          <div class="case-step-text"><strong>Added a retention layer.</strong> Launched email and WhatsApp remarketing flows — abandoned cart, post-purchase upsell, and re-engagement sequences to drive repeat purchases without extra ad spend.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-num">4</div>
+          <div class="case-step-text"><strong>Scaled spend strategically.</strong> Used a test-and-learn budget framework — small tests on new audiences and creatives, then scaling winners while cutting underperformers weekly.</div>
+        </div>
+      </div>
+
+      <div class="case-section-label">Results — within 3 months</div>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="case-metric-num">₹14L</div>
+          <div class="case-metric-label">Revenue (up from ₹9L)</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num">55%</div>
+          <div class="case-metric-label">Revenue growth</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num">3x+</div>
+          <div class="case-metric-label">ROAS maintained</div>
+        </div>
+      </div>
+      <div class="result-pills">
+        <span class="result-pill">Revenue ₹9L → ₹14L</span>
+        <span class="result-pill">ROAS held at 3x+ while scaling</span>
+        <span class="result-pill">Retention via email + WhatsApp</span>
+        <span class="result-pill">Repeat purchase rate improved</span>
+      </div>
+
+      <div class="ss-placeholder">
+        <!-- REPLACE THIS BLOCK with: <img src="cs1-dashboard.jpg" alt="Meta Ads dashboard" style="width:100%;border-radius:8px;"> -->
+        <div class="ss-placeholder-title">Add your Meta Ads dashboard screenshot here</div>
+        <div class="ss-placeholder-hint">Blur brand name, page name, and sensitive info. Keep spend, ROAS, and CPP visible.<br>Recommended size: 1200×675px</div>
+      </div>
+    </div>
+
+    <!-- Case Study 2 -->
+    <div class="case-study">
+      <span class="case-tag case-tag-health">Health & Wellness · Meta Ads · Lead generation</span>
+      <h3 class="case-title">How I scaled a Health & Wellness brand's ad spend 2.4x — while cutting cost per lead by 26%</h3>
+      <div class="case-meta">₹4.5L → ₹10.8L/mo ad spend · 6 months · Meta Ads</div>
+
+      <div class="case-section-label">The situation</div>
+      <div class="case-situation">The brand was generating leads but at an unsustainable cost. Campaigns lacked structure, tracking was unreliable, and creative testing had no framework — making it impossible to know what was working before spending more.</div>
+
+      <div class="case-section-label">What I did</div>
+      <div class="case-steps">
+        <div class="case-step">
+          <div class="case-step-num">1</div>
+          <div class="case-step-text"><strong>Fixed tracking from the ground up.</strong> Implemented proper pixel events, Conversion API, and UTM tracking so every lead source was accurately attributed before touching budgets.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-num">2</div>
+          <div class="case-step-text"><strong>Built a creative testing framework.</strong> Set up structured A/B tests across hooks, formats, and audiences — isolating variables so we could identify winners quickly and scale with confidence.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-num">3</div>
+          <div class="case-step-text"><strong>Improved lead quality, not just volume.</strong> Refined audience targeting and landing page alignment to attract leads that actually converted downstream — not just clicks that padded the numbers.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-num">4</div>
+          <div class="case-step-text"><strong>Scaled spend 2.4x over 6 months.</strong> Grew monthly ad spend from ₹4.5L to ₹10.8L in a controlled, data-driven way — never scaling faster than the creative pipeline and conversion data supported.</div>
+        </div>
+      </div>
+
+      <div class="case-section-label">Results — over 6 months</div>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="case-metric-num">2.4x</div>
+          <div class="case-metric-label">Ad spend scaled</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num">26%</div>
+          <div class="case-metric-label">CPL reduced</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num">6 mo</div>
+          <div class="case-metric-label">Sustained results</div>
+        </div>
+      </div>
+      <div class="result-pills">
+        <span class="result-pill">Spend ₹4.5L → ₹10.8L/mo</span>
+        <span class="result-pill">CPL ₹1,900 → ₹1,400</span>
+        <span class="result-pill">Tracking rebuilt from scratch</span>
+        <span class="result-pill">Quality leads maintained at scale</span>
+      </div>
+
+      <div class="ss-placeholder">
+        <!-- REPLACE THIS BLOCK with: <img src="cs2-dashboard.jpg" alt="Meta Ads dashboard" style="width:100%;border-radius:8px;"> -->
+        <div class="ss-placeholder-title">Add your Meta Ads dashboard screenshot here</div>
+        <div class="ss-placeholder-hint">Blur brand name, page name, and sensitive info. Keep spend, CPL, and lead volume visible.<br>Recommended size: 1200×675px</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">About</div>
+    <div class="about-inner">
+      <div class="about-photo">
+        <!-- Replace with: <img src="your-photo.jpg" alt="[Your Name]"> -->
+        <div class="photo-hint" style="font-size:10px;color:#9a9a96;text-align:center;line-height:1.5">Photo<br>400×400</div>
+      </div>
+      <div class="about-text">
+        <h2 class="section-title" style="margin-bottom:16px">Hi, I'm [Your Name]</h2>
+        <p>I'm a performance marketer with hands-on experience running Meta and Google Ads across e-commerce, D2C, and health & wellness brands. I've managed ₹12L+ in monthly ad spend and built full-funnel systems that grow revenue and lead quality — not just volume.</p>
+        <p>My approach: fix the foundation first — tracking, creative structure, audience segmentation — then scale what's proven. I treat every rupee of ad spend like it's my own, which means no vanity metrics, no wasted budget, and no scaling before the data says so.</p>
+        <p>I work best with founders and marketing teams who are serious about growth and want a performance partner who's accountable to results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL PROOF + FAQ ── -->
+<section>
+  <div class="container">
+    <div class="section-label">What to expect</div>
+    <h2 class="section-title">Working with me</h2>
+    <p class="section-sub">What every client gets — regardless of budget or industry.</p>
+
+    <div class="expect-list">
+      <div class="expect-item">
+        <div class="expect-dot"></div>
+        <div class="expect-text"><strong>You'll know exactly where your money is going.</strong> Weekly reporting with plain-English breakdowns — no vanity metrics, no confusion about what's working.</div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-dot"></div>
+        <div class="expect-text"><strong>Tracking will actually work.</strong> I set up pixel events, Conversion API, and UTM tracking before touching your budget — because scaling on bad data is worse than not scaling at all.</div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-dot"></div>
+        <div class="expect-text"><strong>I'll tell you when not to scale.</strong> Most agencies scale to earn more. I scale when the data says it's safe — which is why ROAS holds.</div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-dot"></div>
+        <div class="expect-text"><strong>Creative testing is built in, not bolted on.</strong> Every engagement includes a structured testing framework so we always know what to scale next.</div>
+      </div>
+    </div>
+
+    <!-- LinkedIn rec placeholder -->
+    <div class="ss-placeholder" style="margin-bottom:40px">
+      <div class="ss-placeholder-title">Add a LinkedIn recommendation here when you receive one</div>
+      <div class="ss-placeholder-hint">Ask your internship manager — even 2 sentences works. Paste as a quote with their name and title.</div>
+    </div>
+
+    <div class="section-label" style="margin-top:40px">FAQ</div>
+    <h3 class="section-title" style="font-size:20px;margin-bottom:24px">Common questions</h3>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Do you work with brands that have never run ads before?</div>
+        <div class="faq-a">Yes — but with a condition. I need a working product, a functional website, and a realistic budget (₹1L+/month in ad spend). If those are in place, I can build your campaigns from scratch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the minimum ad spend you work with?</div>
+        <div class="faq-a"><strong>₹1 lakh per month</strong> in ad spend is my minimum. Below that, the data volume isn't enough to test and optimise meaningfully.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you handle creatives — or just the media buying?</div>
+        <div class="faq-a">I handle creative strategy — hooks, formats, messaging angles, and testing structure. For production, I work with your existing team or recommend trusted collaborators.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you charge?</div>
+        <div class="faq-a">I work on a <strong>monthly retainer</strong>. No percentage of spend — that model incentivises agencies to spend more, not smarter. My fee is fixed so my only incentive is your results.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How will I know what's happening with my campaigns?</div>
+        <div class="faq-a">You'll get a <strong>weekly performance report</strong> in plain English — what ran, what worked, what didn't, and what's next. Plus I'm reachable on WhatsApp for quick updates.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <h2 class="cta-title">Ready to scale your ads profitably?</h2>
+      <p class="cta-sub">I take on a limited number of clients each month. If you're spending ₹1L+ on ads and want consistent results, let's talk.</p>
+
+      <!-- CAL.COM EMBED — replace the placeholder below with your actual embed code -->
+      <div class="cal-embed-placeholder">
+        <p>Cal.com calendar embed</p>
+        <small>Create a free account at cal.com → set up a "Free 30-min strategy call" event → click Embed → copy the inline embed code → paste it here replacing this entire div.</small>
+      </div>
+
+      <div class="cta-email">Prefer email? <a href="mailto:your@email.com">your@email.com</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-name">[Your Name] · Performance Marketer</div>
+  <ul class="footer-links">
+    <li><a href="https://linkedin.com/in/yourhandle" target="_blank">LinkedIn</a></li>
+    <li><a href="mailto:your@email.com">Email</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
